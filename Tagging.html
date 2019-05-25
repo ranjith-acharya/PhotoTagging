@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Photo Tagging - using JavaScript</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="Tagging.css" />
+</head>
+<body>
+	<div id="container" class="image-container">
+		<img id="myFriend" src="group.jpg" class="myImage" style="vertical-align: middle;cursor:pointer;" onclick="Myfunction(event)" />            
+            <div id="tagDiv" class="myClass"></div>
+			<br/>
+			<div id="txtDiv" class="txtDiv"></div> 
+	</div>
+	<br/><br/><br/>
+	<label id="showTag"></label>
+	
+	<script>
+	
+	    var count=1,count1=1,Xcor=0,Ycor=0;
+		var d,d1,i=0;
+		var taggingArray=[];
+		var txtbox=document.createElement('input');
+		txtbox.id="myTxt";
+		txtbox.type='text';
+		txtbox.style.width="90px";
+		var btn=document.createElement('button');
+		btn.innerHTML="OK"; 	 
+		btn.setAttribute("onclick","okbtnFunction()"); 
+		 
+		//=====================================================================================================================
+		
+		//						This function is called when user click on image and to display box and textbox 
+		
+		//===================================================================================================================== 
+		 
+		function Myfunction(event){
+		 
+				Xcor=event.clientX;
+				Ycor=event.clientY;
+				d=document.getElementById('tagDiv'); 
+				d.style.position="absolute";
+				d.style.width="100px";
+				d.style.height="100px";
+				d.style.left=(event.clientX-50)+'px';
+				d.style.top=(event.clientY-50)+'px'; 
+				d.style.border="5px solid yellow";
+				d.style.display="block"; 
+				document.getElementById("container").appendChild(d);
+				 
+				d1=document.getElementById('txtDiv');
+				
+				d1.style.position="absolute";
+				d1.style.left=(event.clientX-40)+'px';
+				d1.style.top=(event.clientY+75)+'px'; 
+				d1.style.border="2px solid red";
+				d1.style.display="block"; 
+				 
+			d1.appendChild(txtbox);	
+			d1.appendChild(btn);
+			document.getElementById("container").appendChild(d1);
+			 
+		}
+		
+		//=====================================================================================================================
+		
+		//											This function is to add that text into array 
+		
+		//=====================================================================================================================
+		function okbtnFunction(){ 
+			if(document.getElementById('myTxt').value==""){
+				alert("Nothing to tag"); 
+				d.style.display="none";
+				d1.style.display="none";
+			}
+			else{
+			
+				taggingArray.push(document.getElementById('myTxt').value); 
+				var my=document.createElement("div");
+				my.id="MyId"+count;
+				//alert(my.id);
+				count=count+1;
+				my.style.left=Xcor-50+"px";
+				my.style.top=Ycor-50+"px";
+				my.style.position="absolute";
+				my.style.width="100px";
+				my.style.height="100px";
+				my.style.border="5px solid red";
+				my.style.display="block"; 
+				my.style.display="none";
+				var readonlyTextbox=document.createElement('input'); 
+				readonlyTextbox.type="text";
+				readonlyTextbox.style["width"]="102%";
+				readonlyTextbox.readOnly=true;
+				readonlyTextbox.value=taggingArray[i];
+				readonlyTextbox.style.marginTop="105%";
+				my.appendChild(readonlyTextbox);
+				document.getElementById("container").appendChild(my);
+				d.style.display="none";
+				d1.style.display="none";
+				document.getElementById('myTxt').value="";
+				tagPhotoName(); 
+			}
+		}
+		
+		//=====================================================================================================================
+		
+		//											This function is to display that we are tag in photo 
+		
+		//=====================================================================================================================
+		 function tagPhotoName(){ 
+				var divID="MyId"+count1;
+				var v=document.createElement('span');
+				v.id=divID+"1";
+				//alert(v.id);
+				v.setAttribute("onmouseover","readyFunction("+divID+")");
+				v.setAttribute("onmouseleave","readyFunction1("+divID+")");
+				var t=document.createElement('label');
+				t.innerHTML=taggingArray[i]+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+				
+				var removeButton=document.createElement('input');
+				removeButton.type="button";
+				removeButton.value="X";
+				removeButton.setAttribute("onclick","removeDiv("+v.id+","+divID+")");
+				v.appendChild(t);
+				v.appendChild(removeButton);
+				document.getElementById("showTag").appendChild(v);
+				 	
+				i++;
+				count1++; 
+		 } 
+		//=====================================================================================================================
+		
+		//											This function is to display Square when we are mouse over to that text  
+		
+		//=====================================================================================================================
+		function readyFunction(a){
+			var b=a.id; 
+			document.getElementById(b).style.display="block";
+		}
+		//=====================================================================================================================
+		
+		//											This function is to hide Square when we are mouse leave to that text  
+		
+		//=====================================================================================================================
+		function readyFunction1(d){
+			var x=d.id;
+			document.getElementById(x).style.display="none";
+		}
+		
+		
+		function removeDiv(labelDiv,squareDiv){
+			var l=document.getElementById(labelDiv.id);
+			var s=document.getElementById(squareDiv.id);
+			l.parentNode.removeChild(l);
+			s.parentNode.removeChild(s);
+			
+			
+		}
+	</script>
+	 
+</body>
+</html>
