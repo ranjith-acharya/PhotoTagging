@@ -3,17 +3,30 @@
 <head>
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Photo Tagging - using JavaScript</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway&display=swap">
-	<link rel="stylesheet" type="text/css" href="index.css" />
+	<link href="index.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
-<body class="bgbody"><h3>Photo Tagging - Using JavaScript</h3>
+<body class="bgbody"><div class="container lead">Photo Tagging - Using JavaScript</div><br><br>
 	<div id="container" class="image-container">
 		<img id="myFriend" src="group.jpg" class="myImage" style="vertical-align: middle;cursor:pointer;" onclick="Myfunction(event)" />            
-            <div id="tagDiv" class="myClass"></div><br/>
+            <div id="tagDiv" class="myClass"></div>
 			<div id="txtDiv" class="txtDiv"></div> 
-	</div><br/><br/><br/>
-	<label id="showTag"></label>
+	</div><label id="showTag"></label><hr style="width:60%;height:1px;" color="#21589b">
+<footer>
+	<div class="lead text-center">Find Me on Social Media</div>
+		<div class="text-center">
+			<a class="link" href="https://www.facebook.com/acharya.ranjith" data-toggle="tooltip" data-placement="bottom" target="_blank" title="Facebook"><i class="lead fa fa-facebook" style="font-size:28px;color:#3b5999;"></i></a>&nbsp;&nbsp;&nbsp;
+			<a class="link" href="https://www.github.com/ranjith-acharya" data-toggle="tooltip" data-placement="bottom" target="_blank" title="Github"><i class="lead fa fa-github" style="font-size:28px;color:#131418;"></i></a>&nbsp;&nbsp;&nbsp;
+			<a class="link" href="https://www.instagram.com/ranjithacharya.info" data-toggle="tooltip" data-placement="bottom" target="_blank" title="Instagram"><i class="lead fa fa-instagram" style="font-size:28px;color:#e4405f;"></i></a>&nbsp;&nbsp;&nbsp;
+			<a class="link" href="https://www.twitter.com/a_ranjith1997" data-toggle="tooltip" data-placement="bottom" target="_blank" title="Twitter"><i class="lead fa fa-twitter" style="font-size:28px;color:#55acee;"></i></a>
+		</div>
+		<p class="lead text-center text-info">&copy; : 2018 All Rights Reserved.</br><span class="lead"><a class="link" href="https://www.ranjithacharya.tk" title="Ranjith Acharya" data-toggle="tooltip" data-placement="bottom" style="color:#ff3300;text-decoration:none;">Ranjith Acharya</span></p>
+</footer>
 </body>
 <script>	
     var count=1,count1=1,Xcor=0,Ycor=0;
