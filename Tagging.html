@@ -3,20 +3,18 @@
 <head>
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Photo Tagging - using JavaScript</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway&display=swap">
 	<link rel="stylesheet" type="text/css" href="Tagging.css" />
 </head>
 <body class="bgbody"><h3>Photo Tagging - Using JavaScript</h3>
 	<div id="container" class="image-container">
 		<img id="myFriend" src="group.jpg" class="myImage" style="vertical-align: middle;cursor:pointer;" onclick="Myfunction(event)" />            
-            <div id="tagDiv" class="myClass"></div>
-			<br/>
+            <div id="tagDiv" class="myClass"></div><br/>
 			<div id="txtDiv" class="txtDiv"></div> 
-	</div>
-	<br/><br/><br/>
+	</div><br/><br/><br/>
 	<label id="showTag"></label>
-	
+</body>
 <script>	
     var count=1,count1=1,Xcor=0,Ycor=0;
 	var d,d1,i=0;
@@ -162,5 +160,4 @@
 		
 	}
 </script>
-</body>
 </html>
