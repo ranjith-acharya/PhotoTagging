@@ -1,16 +1,18 @@
+*{font-family: 'Raleway', sans-serif;}
+.bgbody{
+	background:#ccc;
+}
 .myImage{
-	height:500px;
-	width: 500px;
-	 
-	
+	height:400px;
+	width: 550px;
+	border-radius:5px;
+	box-shadow:0px 0px 10px rgba(0,0,0,0.1);
 }
 .image-container{
 	justify-content: center;
 	display: flex;
-	  
 	height:76vh;
-	width:100%;  
-	 
+	width:100%;
 }
 .myClass{
 	display:none; 
